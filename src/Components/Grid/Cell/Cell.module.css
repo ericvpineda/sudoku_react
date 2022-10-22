@@ -1,0 +1,19 @@
+.cell {
+    height: auto;
+    width: 3rem;
+    max-width: 3rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: 0;
+    
+    font-size: 20px;
+    font-weight: bold;
+
+    border: 1px solid #6d6875;
+    /* background-color: blue; */
+
+}

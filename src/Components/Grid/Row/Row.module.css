@@ -1,0 +1,7 @@
+.row {
+    display: flex;
+    flex-direction: row;
+
+    height: 3rem;
+    max-height: 3rem;
+}
