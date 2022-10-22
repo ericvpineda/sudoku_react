@@ -2,7 +2,7 @@ Working on:
 - Set up files and basic UI 
 
 Issues:
-- None
+- Control buttons shift below when page shinks small enough
 
 Future Ideas:
 - Create settings page (left-hand)
