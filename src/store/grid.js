@@ -19,6 +19,12 @@ const gridSlice = createSlice({
           state.workingGrid[row][col] = num; 
         }
       },
+      newGame (state) {
+        const [newGrid, newSolvedGrid] = randomGrid();
+        state.initialGrid = newGrid;
+        state.workingGrid = newGrid;
+        state.newSolvedGrid = newSolvedGrid;
+      } 
     }
 })
 

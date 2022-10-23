@@ -1,8 +1,16 @@
 import Button from "../../UI/Button/Button";
+import grid, { gridActions } from "../../../store/grid";
+import { useDispatch } from "react-redux";
 
 const NewButton = () => {
+    const dispatch = useDispatch();
+
+    const onClickHandler = () => {
+        dispatch(gridActions.newGame())
+    }
+
     return (
-        <Button>New</Button>
+        <Button onClick={onClickHandler}>New</Button>
     )
 } 
 
