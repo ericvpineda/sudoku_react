@@ -45,6 +45,7 @@ Future Ideas:
 - add more randomness to board creation
 - make n x n grid 
 - put music in the background
+- add draw pad feature for adding nums 
 
 Nice things to have: 
 - bash file with simplified git commands

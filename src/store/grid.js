@@ -7,6 +7,7 @@ const initialState = {
   initialGrid, 
   workingGrid : initialGrid,
   solvedGrid,
+  difficultyModalActive : false
 };
 
 const gridSlice = createSlice({
@@ -37,6 +38,9 @@ const gridSlice = createSlice({
         if (row != null && col != null && state.initialGrid[row][col] === '.') {
           state.workingGrid[row][col] = '.';
         }
+      },
+      activateDifficultyModal (state, action) {
+        state.difficultyModalActive = action.payload;
       }
     }
 })

@@ -7,6 +7,7 @@ import ModeButton from "../ModeButton/ModeButton";
 import SolveButton from "../SolveButton/SolveButton";
 
 const ControlButtons = () => {
+  
   return (
     <Card>
       <NewButton></NewButton>
