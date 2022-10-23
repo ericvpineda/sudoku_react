@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux'
 import styles from './Cell.module.css'
-import { cellActions } from '../../../store/cell';
+import cell, { cellActions } from '../../../store/cell';
 import { gridActions } from "../../../store/grid";
 import useMouseTrap from 'react-hook-mousetrap'
 
@@ -8,8 +8,10 @@ const Cell = (props) => {
     const dispatch = useDispatch();
     const selectedCell = useSelector(state => state.cell.selectedCell);
     const initialGrid = useSelector(state => state.grid.initialGrid);
+    const activeCell = useSelector(state => state.cell.activeCell);
     const isSelected = selectedCell[0] === props.row && selectedCell[1] === props.col;
     const isInputCell = initialGrid[props.row][props.col] === '.' 
+    const isActiveCell = activeCell[0] === props.row && activeCell[1] === props.col
 
     const selectCellHandler = () => {
         dispatch(cellActions.select([props.row, props.col]))
@@ -20,9 +22,10 @@ const Cell = (props) => {
     }
 
     const mouseOverHandler = () => {
-        console.log(props.row, props.col)
+        dispatch(cellActions.active([props.row, props.col]))
     }
 
+    // Note: Need mousetrap fxns here due to row and col requirement
     useMouseTrap('1', () => numTrapHandler('1'))
     useMouseTrap('2', () => numTrapHandler('2'))
     useMouseTrap('3', () => numTrapHandler('3'))
@@ -34,8 +37,9 @@ const Cell = (props) => {
     useMouseTrap('9', () => numTrapHandler('9'))
 
     const allStyles = `${styles.cell} 
-        ${isSelected ? styles.active : '' }
+        ${isSelected ? styles.selectedCell : '' }
         ${isInputCell && !isSelected ? styles.inputCell : ''}
+        ${isActiveCell && !isSelected ? styles.activeCell : ''}
         `
 
     return (

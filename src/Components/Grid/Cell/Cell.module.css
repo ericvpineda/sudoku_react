@@ -18,12 +18,14 @@
 
 }
 
-.active {
-    background-color: #ff595e;
-    z-index: 1;
+.selectedCell {
+    background-color: #52796f;
 }
 
 .inputCell {
-    background-color: #84a98c55;
-    z-index: 2;
+    background-color: #dad7cd;
+}
+
+.activeCell {
+    background-color: #84a98c;
 }

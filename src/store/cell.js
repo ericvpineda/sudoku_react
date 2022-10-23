@@ -1,14 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    selectedCell : []
+    selectedCell : [],
+    activeCell : []
 }
 
 const cellSlice = createSlice({
     name : 'cell',
     initialState,
     reducers : {
-        select(state, action) {state.selectedCell = action.payload}
+        select(state, action) {state.selectedCell = action.payload},
+        active(state, action) {state.activeCell = action.payload}
     }
 })
 
