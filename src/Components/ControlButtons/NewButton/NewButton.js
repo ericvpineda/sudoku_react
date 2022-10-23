@@ -1,5 +1,5 @@
 import Button from "../../UI/Button/Button";
-import grid, { gridActions } from "../../../store/grid";
+import { gridActions } from "../../../store/grid";
 import { useDispatch } from "react-redux";
 
 const NewButton = () => {

@@ -1,9 +1,9 @@
 Working on: 
 - implement buttons 
-    - new, mode, solve, 
+    - new, mode (needs overlay), solve, 
     - hint, erase
-- implement num buttons
-- implement cell highlight + arrow key input 
+- implement 
+- implement arrow key input 
 - modal overlay once successfuly complete
 - implement time + persistence 
 - add title + fix styling
@@ -18,6 +18,8 @@ Completed:
 - complete sudoku solver fxn
 - implemented react-hook-mousetrap for keypad input 
 - implement mutable vs non-mutable cells
+- implement num buttons
+- implented cell highlight
 
 Issues:
 - Control buttons shift below when page shinks small enough
@@ -34,6 +36,7 @@ Future Ideas:
 - solver fxn visual
 - add more randomness to board creation
 - make n x n grid 
+- put music in the background
 
 Nice things to have: 
 - bash file with simplified git commands

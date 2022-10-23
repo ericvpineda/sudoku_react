@@ -24,7 +24,10 @@ const gridSlice = createSlice({
         state.initialGrid = newGrid;
         state.workingGrid = newGrid;
         state.newSolvedGrid = newSolvedGrid;
-      } 
+      },
+      solveGame (state) {
+        state.workingGrid = state.solvedGrid;
+      }
     }
 })
 
