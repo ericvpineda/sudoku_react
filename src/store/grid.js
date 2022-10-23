@@ -15,7 +15,7 @@ const gridSlice = createSlice({
     reducers : {
       fillCell (state, action) { 
         const [num, [row, col]] = action.payload
-        if (row && col && state.initialGrid[row][col] === '.') {
+        if (row != null && col != null && state.initialGrid[row][col] === '.') {
           state.workingGrid[row][col] = num; 
         }
       },
