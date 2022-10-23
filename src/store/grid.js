@@ -15,7 +15,7 @@ const gridSlice = createSlice({
     reducers : {
       fillCell (state, action) { 
         const [num, [row, col]] = action.payload
-        if (initialGrid[row][col] === '.') {
+        if (state.initialGrid[row][col] === '.') {
           state.workingGrid[row][col] = num; 
         }
       },
@@ -28,7 +28,7 @@ const gridSlice = createSlice({
       solveGame (state) {
         state.workingGrid = state.solvedGrid;
       },
-      getHint (state, action) {
+      hint (state, action) {
         const [row, col] = action.payload;
         state.workingGrid[row][col] = state.solvedGrid[row][col]
       }
