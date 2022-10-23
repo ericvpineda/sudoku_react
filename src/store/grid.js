@@ -31,6 +31,12 @@ const gridSlice = createSlice({
       getHint (state, action) {
         const [row, col] = action.payload;
         state.workingGrid[row][col] = state.solvedGrid[row][col]
+      },
+      eraseCell (state, action) {
+        const [row, col] = action.payload;
+        if (row != null && col != null && state.initialGrid[row][col] === '.') {
+          state.workingGrid[row][col] = '.';
+        }
       }
     }
 })
