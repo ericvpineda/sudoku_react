@@ -1,5 +1,4 @@
 Working on: 
-- complete chooseMode fxn
 - implement mutable vs non-mutable cells
 - implement buttons 
     - new, mode, solve, 
@@ -18,11 +17,14 @@ Working on:
 Completed:
 - set up files and basic UI 
 - complete sudoku solver fxn
+- implemented react-hook-mousetrap for keypad input 
 
 Issues:
 - Control buttons shift below when page shinks small enough
 
 Solved:
+- how to select cells with background color
+    - create selectedCell property in cellSlice and use ternary statement with styles to highlight background
 
 Future Ideas:
 - Create settings page (left-hand)

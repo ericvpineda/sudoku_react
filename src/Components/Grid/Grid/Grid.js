@@ -1,12 +1,12 @@
 import styles from "./Grid.module.css";
 import { Children } from "react";
-import {useSelector} from 'react-redux'
 import Card from "../../UI/Card/Card";
 import Cell from "../Cell/Cell";
 import Row from "../Row/Row";
+import { useSelector } from 'react-redux'
 
 const Grid = (props) => {
-  const gridData = useSelector(state => state.grid.grid)
+  const gridData = useSelector(state => state.grid.workingGrid)
 
   return (
     <Card addStyles={styles.grid}>
@@ -17,7 +17,7 @@ const Grid = (props) => {
             {Children.toArray([...Array(9)].map((_, col) => {
               return (
                 
-                <Cell>{gridData[row][col]}</Cell>
+                <Cell row={row} col={col}>{gridData[row][col]}</Cell>
 
               )
 

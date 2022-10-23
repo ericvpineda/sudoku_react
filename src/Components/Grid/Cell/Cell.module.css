@@ -17,3 +17,13 @@
     /* background-color: blue; */
 
 }
+
+.active {
+    background-color: #ff595e;
+    z-index: 1;
+}
+
+.inputCell {
+    background-color: #84a98c55;
+    z-index: 2;
+}

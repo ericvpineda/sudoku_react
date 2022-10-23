@@ -23,14 +23,53 @@ const shuffleArray = (array) => {
     return array;
 }
 
+const copyGrid = (grid) => {
+    let copy = [];
+    const n = grid.length;
+    
+    for (let i = 0; i < n; i++) {
+        copy[i] = grid[i].slice();
+    }
+    return copy;
+}
+
 //   Note: Only 9! different combinations of boards
-const randomGrid = () => {
+const randomGrid = (mode = 'easy') => {
   const grid = emptyGrid();
   const numList = [1,2,3,4,5,6,7,8,9];
+
   grid[0] = shuffleArray(numList)
   solveGrid(grid, 1, 0);
-  return grid;
+
+  const solvedGrid = copyGrid(grid);
+  selectMode(grid, mode)
+
+  return [grid, solvedGrid];
 };
+
+const selectMode = (grid, mode) => {
+    const n = grid.length
+
+    const removeCells = (numRemove) => {
+        for (let i = 0; i < n; i++) {
+            for (let j = 0; j < numRemove; j++) {
+                let idx = Math.floor(Math.random() * n) + 1
+                grid[i][idx] = '.'
+            }
+        }
+    }
+
+    switch (mode) {
+        case 'hard':
+            removeCells(5)
+            break;
+        case 'medium':
+            removeCells(4)
+            break;
+        default:
+            removeCells(3)
+    }
+}
 
 const validateGrid = (grid, target, row, col) => {
     const n = grid.length;
@@ -89,7 +128,6 @@ const solveGrid = (grid, row, col) => {
     for (let val = 1; val < n + 1; val++) {
 
         let tmp = val.toString();
-        
         if (validateGrid(grid, tmp, row, col)) {
             grid[row][col] = tmp;
 
