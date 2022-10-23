@@ -27,6 +27,8 @@ Issues:
 Solved:
 - how to select cells with background color
     - create selectedCell property in cellSlice and use ternary statement with styles to highlight background
+- previous init grid still is changeable on new grid 
+    - some input cells on new grid are unchangable
 
 Future Ideas:
 - Create settings page (left-hand)

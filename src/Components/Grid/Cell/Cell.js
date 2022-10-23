@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux'
 import styles from './Cell.module.css'
-import cell, { cellActions } from '../../../store/cell';
+import { cellActions } from '../../../store/cell';
 import { gridActions } from "../../../store/grid";
 import useMouseTrap from 'react-hook-mousetrap'
 
@@ -9,9 +9,9 @@ const Cell = (props) => {
     const selectedCell = useSelector(state => state.cell.selectedCell);
     const initialGrid = useSelector(state => state.grid.initialGrid);
     const activeCell = useSelector(state => state.cell.activeCell);
-    const isSelected = selectedCell[0] === props.row && selectedCell[1] === props.col;
-    const isInputCell = initialGrid[props.row][props.col] === '.' 
-    const isActiveCell = activeCell[0] === props.row && activeCell[1] === props.col
+    let isSelected = selectedCell[0] === props.row && selectedCell[1] === props.col;
+    let isInputCell = initialGrid[props.row][props.col] === '.' 
+    let isActiveCell = activeCell[0] === props.row && activeCell[1] === props.col
 
     const selectCellHandler = () => {
         dispatch(cellActions.select([props.row, props.col]))
