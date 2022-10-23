@@ -1,9 +1,8 @@
 Working on: 
-- implement mutable vs non-mutable cells
 - implement buttons 
     - new, mode, solve, 
     - hint, erase
-- implement buttons
+- implement num buttons
 - implement cell highlight + arrow key input 
 - modal overlay once successfuly complete
 - implement time + persistence 
@@ -18,6 +17,7 @@ Completed:
 - set up files and basic UI 
 - complete sudoku solver fxn
 - implemented react-hook-mousetrap for keypad input 
+- implement mutable vs non-mutable cells
 
 Issues:
 - Control buttons shift below when page shinks small enough

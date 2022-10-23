@@ -14,12 +14,10 @@
     font-weight: bold;
 
     border: 1px solid #6d6875;
-    /* background-color: blue; */
-
 }
 
 .selectedCell {
-    background-color: #52796f;
+    background-color: #3a5a40;
 }
 
 .inputCell {
