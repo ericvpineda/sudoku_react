@@ -25,13 +25,13 @@ const gridSlice = createSlice({
         const [newGrid, newSolvedGrid] = randomGrid();
         state.initialGrid = newGrid;
         state.workingGrid = newGrid;
-        state.newSolvedGrid = newSolvedGrid;
+        state.solvedGrid = newSolvedGrid;
       },
       solveGame (state) {
         state.workingGrid = state.solvedGrid;
       },
       getHint (state, action) {
-        const [row, col] = action.payload;
+        const [row, col] = action.payload
         state.workingGrid[row][col] = state.solvedGrid[row][col]
       },
       eraseCell (state, action) {
@@ -47,7 +47,7 @@ const gridSlice = createSlice({
         const [newGrid, newSolvedGrid] = randomGrid(action.payload);
         state.initialGrid = newGrid;
         state.workingGrid = newGrid;
-        state.newSolvedGrid = newSolvedGrid;
+        state.solvedGrid = newSolvedGrid;
       }
     }
 })

@@ -5,12 +5,19 @@ import { useSelector, useDispatch } from "react-redux";
 
 const HintButton = () => {
     const dispatch = useDispatch();
+    const initialGrid = useSelector(state => state.grid.initialGrid);
     const workingGrid = useSelector(state => state.grid.workingGrid);
     const solvedGrid = useSelector(state => state.grid.solvedGrid);
-    const [row, col] = nextHint(workingGrid, solvedGrid)
+    const [sRow, sCol] = useSelector(state => state.cell.selectedCell);
+    const [nRow, nCol] = nextHint(workingGrid, solvedGrid)
+    const isInputCell = sRow != null && sCol != null && initialGrid[sRow][sCol] === '.';
 
     const onClickHandler = () => {
-        dispatch(gridActions.getHint([row, col]))
+        if (isInputCell && workingGrid[sRow][sCol] !== solvedGrid[sRow][sCol]) {
+            dispatch(gridActions.getHint([sRow, sCol]))
+        } else {
+            dispatch(gridActions.getHint([nRow, nCol]))
+        }
     }
 
     return (
