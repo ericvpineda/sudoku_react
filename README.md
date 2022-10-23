@@ -1,8 +1,8 @@
 Working on: 
 - implement buttons 
-    - new, mode (needs overlay), solve, 
-    - hint, erase
-- implement 
+    - mode (needs overlay)
+    - erase
+- implement all btns execpt new game from being able to be pressed when game solved (i.e. user solve, solve button)
 - implement arrow key input 
 - modal overlay once successfuly complete
 - implement time + persistence 
@@ -20,6 +20,7 @@ Completed:
 - implement mutable vs non-mutable cells
 - implement num buttons
 - implented cell highlight
+- implemented btns: new, solve, hint, 
 
 Issues:
 - Control buttons shift below when page shinks small enough

@@ -139,6 +139,19 @@ const solveGrid = (grid, row, col) => {
     grid[row][col] = '.'
 };
 
-const compareGrids = (grid, solution) => {};
+const nextHint = (grid, solution) => {
 
-export {randomGrid, solveGrid, compareGrids, validateGrid};
+    const n = grid.length; 
+    
+    for (let i = 0; i < n; i++) {
+        for (let j = 0; j < n; j++) {
+            if (grid[i][j] !== solution[i][j]) {
+                return [i, j];
+            }
+        }
+    }
+
+    return [null, null]
+};
+
+export {randomGrid, solveGrid, nextHint, validateGrid};
