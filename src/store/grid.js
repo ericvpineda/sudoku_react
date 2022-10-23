@@ -7,7 +7,8 @@ const initialState = {
   initialGrid, 
   workingGrid : initialGrid,
   solvedGrid,
-  difficultyModalActive : false
+  difficultyModalActive : false,
+  difficulty : 'easy'
 };
 
 const gridSlice = createSlice({
@@ -41,6 +42,12 @@ const gridSlice = createSlice({
       },
       activateDifficultyModal (state, action) {
         state.difficultyModalActive = action.payload;
+      },
+      changeDifficulty (state, action) {
+        const [newGrid, newSolvedGrid] = randomGrid(action.payload);
+        state.initialGrid = newGrid;
+        state.workingGrid = newGrid;
+        state.newSolvedGrid = newSolvedGrid;
       }
     }
 })

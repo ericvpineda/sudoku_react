@@ -3,12 +3,21 @@ import styles from './DifficultyModal.module.css'
 import { Fragment } from "react";
 import ReactDOM from "react-dom";
 import Button from "../../Button/Button";
+import { useDispatch } from "react-redux";
+import { gridActions } from "../../../../store/grid";
 
 const BackDrop = (props) => {
-    return <div className={styles.backdrop} onClick={props.resetModal}></div>
+    return <div className={styles.backdrop} onClick={props.onConfirm}></div>
 }
 
 const ModalOverlay = (props) => {
+    const dispatch = useDispatch();
+
+    const onClickHandler = (mode) => {
+        dispatch(gridActions.changeDifficulty(mode))
+        props.onConfirm()
+    }
+
     return (
         <Card addStyles={styles.modal}>
             <header>
@@ -18,9 +27,9 @@ const ModalOverlay = (props) => {
             </header>
             {/* Section for button modes */}
             <div className={styles.buttonRow}>
-                <Button>Easy</Button>
-                <Button>Med</Button>
-                <Button>Hard</Button>
+                <Button onClick={() => onClickHandler('easy')}>Easy</Button>
+                <Button onClick={() => onClickHandler('medium')}>Med</Button>
+                <Button onClick={() => onClickHandler('hard')}>Hard</Button>
             </div>
         </Card>
     )
