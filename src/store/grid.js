@@ -76,6 +76,7 @@ const gridSlice = createSlice({
         state.numFilledCells = newFilledCellsCount;
         state.initFilledCells = newFilledCellsCount;
         state.gridLength = newGridLength;
+        state.difficulty = action.payload;
       },
     }
 })

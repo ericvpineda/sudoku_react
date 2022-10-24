@@ -1,3 +1,4 @@
+const STANDARD_GRID_LENGTH = 81;
 
 const emptyGrid = () => {
     return [
@@ -13,16 +14,6 @@ const emptyGrid = () => {
     ]
 }
 
-// Note: Fisher-Yates algorithm 
-const shuffleArray = (array) => {
-    let rand = null;
-    for (let i = 1; i < array.length; i++) {
-        rand = Math.floor(Math.random() * (i + 1));
-        [array[i], array[rand]] = [array[rand], array[i]];
-    }
-    return array;
-}
-
 const copyGrid = (grid) => {
     let copy = [];
     const n = grid.length;
@@ -33,18 +24,40 @@ const copyGrid = (grid) => {
     return copy;
 }
 
+
+// Note: Fisher-Yates algorithm 
+const shuffleArray = (array) => {
+    let rand = null;
+    for (let i = 1; i < array.length; i++) {
+        rand = Math.floor(Math.random() * (i + 1));
+        [array[i], array[rand]] = [array[rand], array[i]];
+    }
+    return array;
+}
+
+const fillDiagonalBlocks = (grid) => {
+    for (let block = 0; block < 9; block += 3) {
+        
+        let randList = shuffleArray(['1','2','3','4','5','6','7','8','9']);
+        for (let i = block; i < block + 3; i++) {
+          
+            for (let j = block; j < block + 3; j++) {
+                grid[i][j] = randList.pop();
+            }
+        }
+    }
+}
+
 //   Note: Only 9! different combinations of boards
 const randomGrid = (mode = 'easy') => {
-  const grid = emptyGrid();
-  const numList = [1,2,3,4,5,6,7,8,9];
+  const newGrid = emptyGrid();
+  fillDiagonalBlocks(newGrid)
+  solveGrid(newGrid, 0, 0);
 
-  grid[0] = shuffleArray(numList)
-  solveGrid(grid, 1, 0);
+  const solvedGrid = copyGrid(newGrid);
+  const numFilledCells = selectMode(newGrid, mode)
 
-  const solvedGrid = copyGrid(grid);
-  const numFilledCells = selectMode(grid, mode)
-
-  return [grid, solvedGrid, numFilledCells, 81];
+  return [newGrid, solvedGrid, numFilledCells, STANDARD_GRID_LENGTH];
 };
 
 const selectMode = (grid, mode) => {
@@ -81,6 +94,7 @@ const selectMode = (grid, mode) => {
 
 const validateGrid = (grid, target, row, col) => {
     const n = grid.length;
+
     // Check if row is valid
     if (grid[row].includes(target)) {
         return false;
@@ -136,6 +150,7 @@ const solveGrid = (grid, row, col) => {
     for (let val = 1; val < n + 1; val++) {
 
         let tmp = val.toString();
+        
         if (validateGrid(grid, tmp, row, col)) {
             grid[row][col] = tmp;
 

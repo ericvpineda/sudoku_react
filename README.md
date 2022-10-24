@@ -3,7 +3,7 @@ Working on:
 - implement arrow key input 
 - modal overlay once successfuly complete
 - implement time + persistence 
-- add title + fix styling
+- add title + difficulty level + fix styling
     - board higher than control buttons + num pad 
     - make control btn + num pad more transparent
     - make cell numbers larger 
@@ -29,6 +29,7 @@ Issues:
 Thoughts
 - Should the grid be reset if change mode to the current mode? 
 - Get hint on selected cell?
+- Why does board get created prior to first call to randomGrid? 
 
 Solved:
 - how to select cells with background color
