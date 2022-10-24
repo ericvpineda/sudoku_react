@@ -5,6 +5,7 @@ Working on:
     - make control btn + num pad more transparent
     - make cell numbers larger 
     - style buttons  
+- change fav icon
 - add public readme.me with summary
 - deploy app    
 

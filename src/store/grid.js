@@ -12,7 +12,8 @@ const initialState = {
   difficulty : 'easy',
   numFilledCells,
   initFilledCells : numFilledCells,
-  isSolved : false
+  isSolved : false,
+  time : 0
 };
 
 const gridSlice = createSlice({
@@ -40,6 +41,7 @@ const gridSlice = createSlice({
         state.initFilledCells = newFilledCellsCount;
         state.isSolved = false;
         state.gridLength = newGridLength;
+        state.time = 0;
       },
       solveGame (state) {
         state.workingGrid = state.solvedGrid;
@@ -77,7 +79,13 @@ const gridSlice = createSlice({
         state.initFilledCells = newFilledCellsCount;
         state.gridLength = newGridLength;
         state.difficulty = action.payload;
+        state.time = 0;
       },
+      incrementTime (state) {
+        if (!state.isSolved) {
+          state.time += 10
+        }
+      }
     }
 })
 
