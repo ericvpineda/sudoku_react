@@ -1,6 +1,5 @@
 Working on: 
 
-- change fav icon
 - add public readme.me with summary
 - deploy app    
 
@@ -25,9 +24,7 @@ Completed:
     - style buttons  
     - choose mode header, solve game header
 
-
 Issues:
-- Control buttons shift below when page shinks small enough
 
 Thoughts
 - Should the grid be reset if change mode to the current mode? 
@@ -45,6 +42,8 @@ Solved:
     - caused previous grid to be used
 - need to add a cap on how large numFilledCells inc/dec to
     - grid.js -- added state variable intFilledCells to track lower and upper bound with conditionals 
+- Control buttons shift below when page shinks small enough
+    - set min-width
 
 Future Ideas:
 - Create settings page (left-hand)

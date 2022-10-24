@@ -16,6 +16,14 @@
     border: 1px solid #6d6875;
 }
 
+.cell:nth-child(3n) {
+    border-right: solid 2px black;
+}
+
+.cell:nth-child(3n + 1) {
+    border-left: solid 2px black;
+}
+
 .selectedCell {
     background-color: #3a5a40;
 }
