@@ -16,6 +16,10 @@ const Cell = (props) => {
     const selectCellHandler = () => {
         dispatch(cellActions.select([props.row, props.col]))
     }
+    
+    const eraseCellTrapHandler = () => {
+        dispatch(gridActions.eraseCell([row, col]))
+    }
 
     const numTrapHandler = (input) => {
         dispatch(gridActions.fillCell([input, [row, col]]))
@@ -23,10 +27,6 @@ const Cell = (props) => {
 
     const mouseOverHandler = () => {
         dispatch(cellActions.active([props.row, props.col]))
-    }
-
-    const eraseCellTrapHandler = () => {
-        dispatch(gridActions.eraseCell([row, col]))
     }
 
     // Note: Need mousetrap fxns here due to row and col requirement

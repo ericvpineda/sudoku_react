@@ -42,19 +42,26 @@ const randomGrid = (mode = 'easy') => {
   solveGrid(grid, 1, 0);
 
   const solvedGrid = copyGrid(grid);
-  selectMode(grid, mode)
+  const numFilledCells = selectMode(grid, mode)
 
-  return [grid, solvedGrid];
+  return [grid, solvedGrid, numFilledCells];
 };
 
 const selectMode = (grid, mode) => {
     const n = grid.length
+    let count = 0;
 
     const removeCells = (numRemove) => {
         for (let i = 0; i < n; i++) {
             for (let j = 0; j < numRemove; j++) {
                 let idx = Math.floor(Math.random() * n) + 1
                 grid[i][idx] = '.'
+            }
+            // Note: Count number of non-input cells 
+            for (let j = 0; j < n; j++) {
+                if (grid[i][j] !== '.') {
+                    count ++;
+                }
             }
         }
     }
@@ -69,6 +76,7 @@ const selectMode = (grid, mode) => {
         default:
             removeCells(3)
     }
+    return count;
 }
 
 const validateGrid = (grid, target, row, col) => {
@@ -154,4 +162,18 @@ const nextHint = (grid, solution) => {
     return [null, null]
 };
 
-export {randomGrid, solveGrid, nextHint, validateGrid};
+const compareGrids = (grid, solution) => {
+
+    const n = grid.length;
+
+    for (let row = 0; row < n; row++) {
+        
+        if (!grid[row].every((val, col) => val === solution[row][col])) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+export {randomGrid, solveGrid, nextHint, validateGrid, compareGrids};
