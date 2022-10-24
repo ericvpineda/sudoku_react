@@ -1,14 +1,12 @@
 Working on: 
-- implement all btns execpt new game from being able to be pressed when game solved (i.e. user solve, solve button)
-- implement arrow key input 
-- modal overlay once successfuly complete
 - implement time + persistence 
 - add title + difficulty level + fix styling
     - board higher than control buttons + num pad 
     - make control btn + num pad more transparent
     - make cell numbers larger 
     - style buttons  
-- add public readme.me with summary   
+- add public readme.me with summary
+- deploy app    
 
 Completed:
 - set up files and basic UI 
@@ -20,6 +18,10 @@ Completed:
 - implemented btns: new, solve, hint, erase, model
 - implemented difficulty modal overlay
 - implement keyboard listener for 'backspace' to delete cell
+- implement all btns execpt new game from being able to be pressed when game solved (i.e. user solve, solve button)
+    - uses overlay
+- modal overlay once successfuly complete
+- implement arrow key input 
 - 
 
 Issues:

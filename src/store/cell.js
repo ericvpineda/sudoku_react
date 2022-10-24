@@ -10,7 +10,10 @@ const cellSlice = createSlice({
     initialState,
     reducers : {
         select(state, action) {state.selectedCell = action.payload},
-        active(state, action) {state.activeCell = action.payload}
+        active(state, action) {state.activeCell = action.payload},
+        move(state, action) {
+            state.selectedCell = action.payload;
+        }, 
     }
 })
 

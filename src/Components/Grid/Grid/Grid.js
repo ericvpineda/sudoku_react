@@ -9,6 +9,7 @@ import { Fragment } from "react";
 import { gridActions } from "../../../store/grid";
 import SolvedModal from "../../UI/Modal/SolvedModal/SolvedModal";
 import useMouseTrap from 'react-hook-mousetrap'
+import { cellActions } from "../../../store/cell";
 
 
 const Grid = () => {
@@ -30,7 +31,36 @@ const Grid = () => {
     dispatch(gridActions.eraseCell([row, col]))
   }
 
-  // Note: Need mousetrap fxns here due to row and col requirement
+  const moveHandler = (direction) => {
+    
+    if (row != null && col != null) {
+      switch(direction) {
+        case 'up':
+          if (row - 1 >= 0) {
+            dispatch(cellActions.move([row - 1, col]))
+          }
+          break;
+        case 'down':
+          if (row + 1 < workingGrid.length) {
+            dispatch(cellActions.move([row + 1, col]))
+          }
+          break;
+        case 'left':
+          if (col - 1 >= 0) {
+            dispatch(cellActions.move([row, col - 1]))
+          }
+          break;
+        case 'right':
+          if (col + 1 < workingGrid.length) {
+            dispatch(cellActions.move([row, col + 1]))
+          }
+          break;
+        default:
+      }
+    }
+    
+  }
+
   useMouseTrap('1', () => numTrapHandler('1'))
   useMouseTrap('2', () => numTrapHandler('2'))
   useMouseTrap('3', () => numTrapHandler('3'))
@@ -42,6 +72,12 @@ const Grid = () => {
   useMouseTrap('9', () => numTrapHandler('9'))
   useMouseTrap('backspace', () => eraseCellTrapHandler())
   useMouseTrap('del', () => eraseCellTrapHandler())
+
+  // Note: Arrow key functionality
+  useMouseTrap('up', () => moveHandler('up'))
+  useMouseTrap('left', () => moveHandler('left'))
+  useMouseTrap('down', () => moveHandler('down'))
+  useMouseTrap('right', () => moveHandler('right'))
 
   return (
     <Fragment>
