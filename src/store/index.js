@@ -1,4 +1,4 @@
-import {configureStore} from '@reduxjs/toolkit'
+import {configureStore, combineReducers} from '@reduxjs/toolkit'
 import gridReducer from './grid'
 import cellReducer from './cell'
 import storage from 'redux-persist/lib/storage'
@@ -9,13 +9,16 @@ const persistConfig = {
     storage
 }
 
-// const persistReducer = persistReducer(persistConfig, )
+const rootReducer = combineReducers({
+    grid : gridReducer,
+    cell : cellReducer
+})
+
+const persistRedux = persistReducer(persistConfig, rootReducer)
 
 const store = configureStore({
-    reducer : {
-        grid : gridReducer,
-        cell : cellReducer
-    }
+    reducer : persistRedux
 })
 
 export default store; 
+export const persistor = persistStore(store)
