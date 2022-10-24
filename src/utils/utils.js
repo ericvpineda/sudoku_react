@@ -1,15 +1,15 @@
 
 const emptyGrid = () => {
     return [
-        ['.','.','.','.','.','.','.','.','.',],
-        ['.','.','.','.','.','.','.','.','.',],
-        ['.','.','.','.','.','.','.','.','.',],
-        ['.','.','.','.','.','.','.','.','.',],
-        ['.','.','.','.','.','.','.','.','.',],
-        ['.','.','.','.','.','.','.','.','.',],
-        ['.','.','.','.','.','.','.','.','.',],
-        ['.','.','.','.','.','.','.','.','.',],
-        ['.','.','.','.','.','.','.','.','.',],
+        ['.','.','.','.','.','.','.','.','.'],
+        ['.','.','.','.','.','.','.','.','.'],
+        ['.','.','.','.','.','.','.','.','.'],
+        ['.','.','.','.','.','.','.','.','.'],
+        ['.','.','.','.','.','.','.','.','.'],
+        ['.','.','.','.','.','.','.','.','.'],
+        ['.','.','.','.','.','.','.','.','.'],
+        ['.','.','.','.','.','.','.','.','.'],
+        ['.','.','.','.','.','.','.','.','.'],
     ]
 }
 
@@ -44,7 +44,7 @@ const randomGrid = (mode = 'easy') => {
   const solvedGrid = copyGrid(grid);
   const numFilledCells = selectMode(grid, mode)
 
-  return [grid, solvedGrid, numFilledCells];
+  return [grid, solvedGrid, numFilledCells, 81];
 };
 
 const selectMode = (grid, mode) => {
@@ -54,13 +54,13 @@ const selectMode = (grid, mode) => {
     const removeCells = (numRemove) => {
         for (let i = 0; i < n; i++) {
             for (let j = 0; j < numRemove; j++) {
-                let idx = Math.floor(Math.random() * n) + 1
+                let idx = Math.floor(Math.random() * n)
                 grid[i][idx] = '.'
             }
             // Note: Count number of non-input cells 
             for (let j = 0; j < n; j++) {
                 if (grid[i][j] !== '.') {
-                    count ++;
+                    count++;
                 }
             }
         }
@@ -163,7 +163,6 @@ const nextHint = (grid, solution) => {
 };
 
 const compareGrids = (grid, solution) => {
-
     const n = grid.length;
 
     for (let row = 0; row < n; row++) {

@@ -24,7 +24,7 @@ Completed:
 
 Issues:
 - Control buttons shift below when page shinks small enough
-- After changing mode, hint button will change input and immutable cells
+- need to add a cap on how large numFilledCells inc/dec to
 
 Thoughts
 - Should the grid be reset if change mode to the current mode? 
