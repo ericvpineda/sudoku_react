@@ -22,7 +22,7 @@ const ModalOverlay = (props) => {
         <Card addStyles={styles.modal}>
             <header>
                 <h2>
-                    Select Difficulty
+                    Select Difficulty&#x1F914;
                 </h2>
             </header>
             {/* Section for button modes */}
