@@ -1,10 +1,5 @@
 Working on: 
-- implement time + persistence 
-- add title + difficulty level + fix styling
-    - board higher than control buttons + num pad 
-    - make control btn + num pad more transparent
-    - make cell numbers larger 
-    - style buttons  
+
 - change fav icon
 - add public readme.me with summary
 - deploy app    
@@ -23,16 +18,22 @@ Completed:
     - uses overlay
 - modal overlay once successfuly complete
 - implement arrow key input 
-- 
+- implement time + persistence 
+- fix styling
+    - make control btn + num pad more transparent
+    - make cell numbers larger 
+    - style buttons  
+    - choose mode header, solve game header
+
 
 Issues:
 - Control buttons shift below when page shinks small enough
-- need to add a cap on how large numFilledCells inc/dec to
 
 Thoughts
 - Should the grid be reset if change mode to the current mode? 
 - Get hint on selected cell?
 - Why does board get created prior to first call to randomGrid? 
+- Add a clear board 
 
 Solved:
 - how to select cells with background color
@@ -42,6 +43,8 @@ Solved:
 - previous grid input cells and immutable cells are active when new game occurs
     - in newGame reducer, initialGrid was not set to state.initialGrid 
     - caused previous grid to be used
+- need to add a cap on how large numFilledCells inc/dec to
+    - grid.js -- added state variable intFilledCells to track lower and upper bound with conditionals 
 
 Future Ideas:
 - Create settings page (left-hand)

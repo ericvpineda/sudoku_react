@@ -2,6 +2,7 @@ import Button from "../../UI/Button/Button";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { gridActions } from "../../../store/grid";
+import styles from '../ControlButtons/ControlButtons.module.css'
 
 // Note: 
 // - Only want to erase input buttons
@@ -15,7 +16,7 @@ const EraseButton = () => {
     }
 
     return (
-        <Button onClick={onClickHandler}>Erase</Button>
+        <Button addStyles={styles.individualButton} onClick={onClickHandler}>Erase</Button>
     )
 } 
 

@@ -1,6 +1,7 @@
 import Button from "../../UI/Button/Button";
 import { useDispatch, useSelector } from "react-redux";
 import { gridActions } from "../../../store/grid";
+import styles from './Number.module.css'
 
 const Number = (props) => {
     const dispatch = useDispatch();
@@ -11,7 +12,7 @@ const Number = (props) => {
     }
 
     return (
-        <Button onClick={onClickHandler}>{props.children}</Button>
+        <Button addStyles={styles.number} onClick={onClickHandler}>{props.children}</Button>
     )
 }
 

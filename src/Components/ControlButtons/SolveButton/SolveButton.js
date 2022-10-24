@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
 import Button from "../../UI/Button/Button";
 import { gridActions } from "../../../store/grid";
+import styles from '../ControlButtons/ControlButtons.module.css'
 
 const SolveButton = () => {
     const dispatch = useDispatch();
@@ -10,7 +11,7 @@ const SolveButton = () => {
     }
 
     return (
-        <Button onClick={onClickHandler}>Solve</Button>
+        <Button addStyles={styles.individualButton} onClick={onClickHandler}>Solve</Button>
     )
 } 
 

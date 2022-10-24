@@ -2,6 +2,7 @@ import Button from "../../UI/Button/Button";
 import { gridActions } from "../../../store/grid";
 import { nextHint } from "../../../utils/utils";
 import { useSelector, useDispatch } from "react-redux";
+import styles from '../ControlButtons/ControlButtons.module.css'
 
 const HintButton = () => {
     const dispatch = useDispatch();
@@ -21,7 +22,7 @@ const HintButton = () => {
     }
 
     return (
-        <Button onClick={onClickHandler}>Hint</Button>
+        <Button addStyles={styles.individualButton} onClick={onClickHandler}>Hint</Button>
     )
 } 
 

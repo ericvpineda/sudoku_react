@@ -21,12 +21,12 @@ const ModalOverlay = (props) => {
         <Card addStyles={styles.modal}>
             <header>
                 <h2>
-                    Congrats you solved the Sudoku!
+                &#x1F389;&#x1F389;Congrats you solved the Sudoku!&#x1F389;&#x1F389; 
                 </h2>
             </header>
             {/* Section for button modes */}
             <div className={styles.controlRow}>
-                <Button onClick={onClickHandler}>Play Again?</Button>
+                <Button addStyles={styles.button} onClick={onClickHandler}>Play again?</Button>
             </div>
         </Card>
     )

@@ -27,9 +27,9 @@ const ModalOverlay = (props) => {
             </header>
             {/* Section for button modes */}
             <div className={styles.buttonRow}>
-                <Button onClick={() => onClickHandler('easy')}>Easy</Button>
-                <Button onClick={() => onClickHandler('medium')}>Med</Button>
-                <Button onClick={() => onClickHandler('hard')}>Hard</Button>
+                <Button addStyles={styles.button} onClick={() => onClickHandler('easy')}>Easy</Button>
+                <Button addStyles={styles.button} onClick={() => onClickHandler('medium')}>Med</Button>
+                <Button addStyles={styles.button} onClick={() => onClickHandler('hard')}>Hard</Button>
             </div>
         </Card>
     )
