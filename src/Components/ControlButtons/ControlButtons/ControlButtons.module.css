@@ -3,7 +3,8 @@
     max-height: 22rem;
     max-width: fit-content;
 
-    margin-top: 0.5rem;
+    padding: 0.75rem !important;
+    margin-top: 1rem;
 
     display: flex;
     flex-direction: row;
