@@ -1,6 +1,5 @@
 .grid {
-    max-width: 35rem;
-    width: 80%;
-
+    max-width: 100%;
+    
     background-color: rgba(255, 255, 255, 0.9) !important;
 }

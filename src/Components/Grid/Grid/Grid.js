@@ -19,6 +19,8 @@ const Grid = () => {
     dispatch(gridActions.activateDifficultyModal(false))
   }
 
+  console.log("here")
+
   return (
     <Fragment>
       

@@ -4,8 +4,8 @@
     width: 2.2rem;
     
     padding-top: 0.4rem;
-    margin-left: 0.3rem;
-    margin-right: 0.3rem;
+    margin-left: 0.15rem;
+    margin-right: 0.15rem;
     box-sizing: border-box;
     
     display: inline-block;
@@ -13,7 +13,7 @@
     color: #fff;
     background-color: #000;
     background-image: none;
-    box-shadow: #fff 4px 4px 0 0,#000 4px 4px 0 1px;
+    box-shadow: #fff 2px 2px 0 0,#000 2px 2px 0 1px;
     border: 1px solid #000;
     border-radius: 4px;
     

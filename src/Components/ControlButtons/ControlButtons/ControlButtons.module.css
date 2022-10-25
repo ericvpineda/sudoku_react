@@ -1,23 +1,26 @@
 .controlButtons {
     
-    max-height: 22rem;
-    max-width: fit-content;
+    max-height: fit-content;
+    max-width: 100%;
 
     padding: 0.75rem !important;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
 
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
 
     background-color: rgba(255, 255, 255, 0.4);
 }
 
 .individualButton {
 
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
+    max-width: 0.5rem;
+    max-height: 0.2rem;
+
+    padding: 0.5rem 2.65rem 1.75rem 0.75rem;
+    margin-left: 0.25rem;
+    margin-right: 0.25rem;
 
     background-color: #000;
     background-image: none;
@@ -31,13 +34,5 @@
     font-size: 14px;
     font-weight: 400;
     overflow: visible;
-    padding: 1rem 2.75rem 2rem 1rem;
     text-align: center;
-    text-transform: none;
-    touch-action: manipulation;
-    user-select: none;
-    -webkit-user-select: none;
-    vertical-align: middle;
-    white-space: nowrap;
-
 }
