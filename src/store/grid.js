@@ -1,17 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
-import {randomGrid, compareGrids} from '../utils/utils.js'
-
-const [initialGrid, solvedGrid, numFilledCells, gridLength] = randomGrid();
+import {compareGrids} from '../utils/utils.js'
 
 const initialState = {
-  gridLength,
-  initialGrid, 
-  workingGrid : initialGrid,
-  solvedGrid,
+  gridLength : 0,
+  initialGrid : [], 
+  workingGrid : [],
+  solvedGrid : [],
   difficultyModalActive : false,
   difficulty : 'easy',
-  numFilledCells,
-  initFilledCells : numFilledCells,
+  numFilledCells : 0,
+  initFilledCells : 0,
   isSolved : false,
   time : 0
 };
@@ -22,18 +20,16 @@ const gridSlice = createSlice({
     reducers : {
       fillCell (state, action) { 
         const [num, [row, col]] = action.payload
-        if (row != null && col != null && state.initialGrid[row][col] === '.') {
-          if (state.numFilledCells + 1 <= state.gridLength && state.workingGrid[row][col] === '.') {
-            state.numFilledCells += 1;
-          }
-          state.workingGrid[row][col] = num; 
+        if (state.numFilledCells + 1 <= state.gridLength && state.workingGrid[row][col] === '.') {
+          state.numFilledCells += 1;
         }
+        state.workingGrid[row][col] = num; 
         if (state.numFilledCells === state.gridLength && compareGrids(state.workingGrid, state.solvedGrid)) {
           state.isSolved = true;
         }
       },
-      newGame (state) {
-        const [newGrid, newSolvedGrid, newFilledCellsCount, newGridLength] = randomGrid(state.difficulty);
+      newGame (state, action) {
+        const [newGrid, newSolvedGrid, newFilledCellsCount, newGridLength, mode] = action.payload;
         state.initialGrid = newGrid;
         state.workingGrid = newGrid;
         state.solvedGrid = newSolvedGrid;
@@ -42,6 +38,7 @@ const gridSlice = createSlice({
         state.isSolved = false;
         state.gridLength = newGridLength;
         state.time = 0;
+        state.difficulty = mode
       },
       solveGame (state) {
         state.workingGrid = state.solvedGrid;
@@ -50,7 +47,7 @@ const gridSlice = createSlice({
       },
       getHint (state, action) {
         const [row, col] = action.payload
-        if (state.numFilledCells + 1 <= gridLength && state.workingGrid[row][col] === '.') {
+        if (state.numFilledCells + 1 <= state.gridLength && state.workingGrid[row][col] === '.') {
           state.numFilledCells += 1;
         }
         state.workingGrid[row][col] = state.solvedGrid[row][col]
@@ -71,14 +68,14 @@ const gridSlice = createSlice({
         state.difficultyModalActive = action.payload;
       },
       changeDifficulty (state, action) {
-        const [newGrid, newSolvedGrid, newFilledCellsCount, newGridLength] = randomGrid(action.payload);
+        const [newGrid, newSolvedGrid, newFilledCellsCount, newGridLength, mode] = action.payload;
         state.initialGrid = newGrid;
         state.workingGrid = newGrid;
         state.solvedGrid = newSolvedGrid;
         state.numFilledCells = newFilledCellsCount;
         state.initFilledCells = newFilledCellsCount;
         state.gridLength = newGridLength;
-        state.difficulty = action.payload;
+        state.difficulty = mode;
         state.time = 0;
       },
       incrementTime (state) {

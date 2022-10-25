@@ -5,6 +5,7 @@ import ReactDOM from "react-dom";
 import Button from "../../Button/Button";
 import { useDispatch } from "react-redux";
 import { gridActions } from "../../../../store/grid";
+import { randomGrid } from "../../../../utils/utils";
 
 const BackDrop = (props) => {
     return <div className={styles.backdrop} onClick={props.onConfirm}></div>
@@ -14,7 +15,8 @@ const ModalOverlay = (props) => {
     const dispatch = useDispatch();
 
     const onClickHandler = (mode) => {
-        dispatch(gridActions.changeDifficulty(mode))
+        const newGridLogistics = randomGrid(mode)
+        dispatch(gridActions.changeDifficulty(newGridLogistics))
         props.onConfirm()
     }
 

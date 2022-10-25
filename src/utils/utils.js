@@ -57,7 +57,7 @@ const randomGrid = (mode = 'easy') => {
   const solvedGrid = copyGrid(newGrid);
   const numFilledCells = selectMode(newGrid, mode)
 
-  return [newGrid, solvedGrid, numFilledCells, STANDARD_GRID_LENGTH];
+  return [newGrid, solvedGrid, numFilledCells, STANDARD_GRID_LENGTH, mode];
 };
 
 const selectMode = (grid, mode) => {

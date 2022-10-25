@@ -3,18 +3,21 @@ import styles from './SolvedModal.module.css'
 import { Fragment } from "react";
 import ReactDOM from "react-dom";
 import Button from "../../Button/Button";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { gridActions } from "../../../../store/grid";
+import { randomGrid } from "../../../../utils/utils";
 
 const BackDrop = () => {
     return <div className={styles.backdrop}></div>
 }
 
-const ModalOverlay = (props) => {
+const ModalOverlay = () => {
     const dispatch = useDispatch();
+    const currDifficulty = useSelector(state => state.grid.difficulty)
 
     const onClickHandler = () => {
-        dispatch(gridActions.newGame())
+        const newGridLogistics = randomGrid(currDifficulty)
+        dispatch(gridActions.newGame(newGridLogistics))
     }
 
     return (
