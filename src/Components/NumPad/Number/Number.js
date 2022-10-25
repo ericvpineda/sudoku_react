@@ -11,7 +11,7 @@ const Number = (props) => {
 
 
     const onClickHandler = () => {
-    if (row && col && initialGrid[row][col] === '.') {
+    if (row != null && col != null && initialGrid[row][col] === '.') {
         dispatch(gridActions.fillCell([props.children, selectedCell]))
         }
     }
