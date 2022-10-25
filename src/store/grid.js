@@ -1,15 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
-import {compareGrids} from '../utils/utils.js'
+import {compareGrids, randomGrid} from '../utils/utils.js'
+
+const [starterGrid, startGridSolved, starterFillCount, startGridLength, starterMode] = randomGrid();
 
 const initialState = {
-  gridLength : 0,
-  initialGrid : [], 
-  workingGrid : [],
-  solvedGrid : [],
+  gridLength : startGridLength,
+  initialGrid : starterGrid, 
+  workingGrid : starterGrid,
+  solvedGrid : startGridSolved,
   difficultyModalActive : false,
-  difficulty : 'easy',
-  numFilledCells : 0,
-  initFilledCells : 0,
+  difficulty : starterMode,
+  numFilledCells : starterFillCount,
+  initFilledCells : starterFillCount,
   isSolved : false,
   time : 0
 };

@@ -10,26 +10,15 @@ import { gridActions } from "../../../store/grid";
 import SolvedModal from "../../UI/Modal/SolvedModal/SolvedModal";
 import useMouseTrap from 'react-hook-mousetrap'
 import { cellActions } from "../../../store/cell";
-import { useEffect } from "react";
-import { randomGrid } from "../../../utils/utils";
 
 
 const Grid = () => {
   const workingGrid = useSelector(state => state.grid.workingGrid)
   const initialGrid = useSelector(state => state.grid.initialGrid)
-  const currDifficulty = useSelector(state => state.grid.difficulty);
   const difficultyModalActive = useSelector(state => state.grid.difficultyModalActive)
   const isSolved = useSelector(state => state.grid.isSolved);
   const [row, col] = useSelector(state => state.cell.selectedCell);
   const dispatch = useDispatch();
-
-  // Note: Renders new game upon initialialization
-  useEffect(() => {
-    if (!isSolved) {
-      const newGridLogistics = randomGrid(currDifficulty);
-      dispatch(gridActions.newGame(newGridLogistics))
-    }
-  }, [dispatch, isSolved, currDifficulty])
 
   const resetModalHandler = () => {
     dispatch(gridActions.activateDifficultyModal(false))

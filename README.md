@@ -44,6 +44,9 @@ Solved:
     - grid.js -- added state variable intFilledCells to track lower and upper bound with conditionals 
 - Control buttons shift below when page shinks small enough
     - set min-width
+- non-seriablizable value detected in action in path register
+    - added middleware to hand redux-persist action types it dispatches 
+    - https://redux-toolkit.js.org/usage/usage-guide#use-with-redux-persist
 
 Future Ideas:
 - Create settings page (left-hand)
