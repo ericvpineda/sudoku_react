@@ -24,7 +24,7 @@
 }
 
 .selectedCell {
-    background-color: #3a5a40;
+    background-color: #3a5a40 !important;
 }
 
 .inputCell {

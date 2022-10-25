@@ -9,8 +9,9 @@ const Number = (props) => {
     const [row, col] = useSelector(state => state.cell.selectedCell);
     const initialGrid = useSelector(state => state.grid.initialGrid)
 
+
     const onClickHandler = () => {
-    if (row != null && col != null && initialGrid[row][col] === '.') {
+    if (row && col && initialGrid[row][col] === '.') {
         dispatch(gridActions.fillCell([props.children, selectedCell]))
         }
     }
