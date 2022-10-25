@@ -19,6 +19,11 @@
     font-family: 'Roboto Slab';
 }
 
+.title sup {
+    margin-bottom: 2rem;
+    font-size: 1rem;
+}
+
 .time {
     font-size: 1.5rem;
     margin-bottom: .1rem;

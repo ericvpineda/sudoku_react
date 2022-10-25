@@ -6,6 +6,7 @@ import { gridActions } from '../../store/grid';
 const Header = () => {
 
     const dispatch = useDispatch();
+    const difficulty = useSelector(state => state.grid.difficulty)
     const time = useSelector(state => state.grid.time)
 
     useEffect(() => {
@@ -17,7 +18,7 @@ const Header = () => {
 
     return (
         <div className={styles.header}>
-            <div className={styles.title}>Sudoku</div>
+            <div className={styles.title}>Sudoku<sup>{difficulty}</sup></div>
             <div className={styles.time}>
                 <span> {("0" + Math.floor(((time / 60000) % 600))).slice(-2)}:</span>
                 <span>{("0" + Math.floor(((time / 1000) % 60))).slice(-2)}</span>

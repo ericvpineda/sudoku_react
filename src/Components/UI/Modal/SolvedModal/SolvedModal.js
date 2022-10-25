@@ -14,6 +14,7 @@ const BackDrop = () => {
 const ModalOverlay = () => {
     const dispatch = useDispatch();
     const currDifficulty = useSelector(state => state.grid.difficulty)
+    const time = useSelector(state => state.grid.time)
 
     const onClickHandler = () => {
         const newGridLogistics = randomGrid(currDifficulty)
@@ -22,7 +23,13 @@ const ModalOverlay = () => {
 
     return (
         <Card addStyles={styles.modal}>
-            <h2> &#x1F389;Congrats!&#x1F389; </h2>
+            <header>
+                <h2> &#x1F389;Congrats!&#x1F389; </h2>
+                <section>
+                    Time:<span> {("0" + Math.floor(((time / 60000) % 600))).slice(-2)}:</span>
+                    <span>{("0" + Math.floor(((time / 1000) % 60))).slice(-2)}</span>
+                </section>
+            </header>
             <Button addStyles={styles.button} onClick={onClickHandler}>Play again?</Button>
         </Card>
     )
