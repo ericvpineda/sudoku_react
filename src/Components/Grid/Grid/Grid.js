@@ -8,7 +8,7 @@ import DifficultyModal from "../../UI/Modal/DifficultyModal/DifficultyModal";
 import { Fragment } from "react";
 import { gridActions } from "../../../store/grid";
 import SolvedModal from "../../UI/Modal/SolvedModal/SolvedModal";
-import useMouseTrap from 'react-hook-mousetrap'
+// import useMouseTrap from 'react-hook-mousetrap'
 import { cellActions } from "../../../store/cell";
 
 
@@ -64,23 +64,23 @@ const Grid = () => {
     
   }
 
-  useMouseTrap('1', () => numTrapHandler('1'))
-  useMouseTrap('2', () => numTrapHandler('2'))
-  useMouseTrap('3', () => numTrapHandler('3'))
-  useMouseTrap('4', () => numTrapHandler('4'))
-  useMouseTrap('5', () => numTrapHandler('5'))
-  useMouseTrap('6', () => numTrapHandler('6'))
-  useMouseTrap('7', () => numTrapHandler('7'))
-  useMouseTrap('8', () => numTrapHandler('8'))
-  useMouseTrap('9', () => numTrapHandler('9'))
-  useMouseTrap('backspace', () => eraseCellTrapHandler())
-  useMouseTrap('del', () => eraseCellTrapHandler())
+  // useMouseTrap('1', () => numTrapHandler('1'))
+  // useMouseTrap('2', () => numTrapHandler('2'))
+  // useMouseTrap('3', () => numTrapHandler('3'))
+  // useMouseTrap('4', () => numTrapHandler('4'))
+  // useMouseTrap('5', () => numTrapHandler('5'))
+  // useMouseTrap('6', () => numTrapHandler('6'))
+  // useMouseTrap('7', () => numTrapHandler('7'))
+  // useMouseTrap('8', () => numTrapHandler('8'))
+  // useMouseTrap('9', () => numTrapHandler('9'))
+  // useMouseTrap('backspace', () => eraseCellTrapHandler())
+  // useMouseTrap('del', () => eraseCellTrapHandler())
 
-  // Note: Arrow key functionality
-  useMouseTrap('up', () => moveHandler('up'))
-  useMouseTrap('left', () => moveHandler('left'))
-  useMouseTrap('down', () => moveHandler('down'))
-  useMouseTrap('right', () => moveHandler('right'))
+  // // Note: Arrow key functionality
+  // useMouseTrap('up', () => moveHandler('up'))
+  // useMouseTrap('left', () => moveHandler('left'))
+  // useMouseTrap('down', () => moveHandler('down'))
+  // useMouseTrap('right', () => moveHandler('right'))
 
   return (
     <Fragment>
