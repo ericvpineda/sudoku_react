@@ -9,60 +9,60 @@ import { Fragment } from "react";
 import { gridActions } from "../../../store/grid";
 import SolvedModal from "../../UI/Modal/SolvedModal/SolvedModal";
 // import useMouseTrap from 'react-hook-mousetrap'
-import { cellActions } from "../../../store/cell";
+// import { cellActions } from "../../../store/cell";
 
 
 const Grid = () => {
   const workingGrid = useSelector(state => state.grid.workingGrid)
-  const initialGrid = useSelector(state => state.grid.initialGrid)
+  // const initialGrid = useSelector(state => state.grid.initialGrid)
   const difficultyModalActive = useSelector(state => state.grid.difficultyModalActive)
   const isSolved = useSelector(state => state.grid.isSolved);
-  const [row, col] = useSelector(state => state.cell.selectedCell);
+  // const [row, col] = useSelector(state => state.cell.selectedCell);
   const dispatch = useDispatch();
 
   const resetModalHandler = () => {
     dispatch(gridActions.activateDifficultyModal(false))
   }
   
-  const numTrapHandler = (input) => {
-    if (row != null && col != null && initialGrid[row][col] === '.') {
-      dispatch(gridActions.fillCell([input, [row, col]]))
-    }
-  }
+  // const numTrapHandler = (input) => {
+  //   if (row != null && col != null && initialGrid[row][col] === '.') {
+  //     dispatch(gridActions.fillCell([input, [row, col]]))
+  //   }
+  // }
 
-  const eraseCellTrapHandler = () => {
-    dispatch(gridActions.eraseCell([row, col]))
-  }
+  // const eraseCellTrapHandler = () => {
+  //   dispatch(gridActions.eraseCell([row, col]))
+  // }
 
-  const moveHandler = (direction) => {
+  // const moveHandler = (direction) => {
     
-    if (row != null && col != null) {
-      switch(direction) {
-        case 'up':
-          if (row - 1 >= 0) {
-            dispatch(cellActions.move([row - 1, col]))
-          }
-          break;
-        case 'down':
-          if (row + 1 < workingGrid.length) {
-            dispatch(cellActions.move([row + 1, col]))
-          }
-          break;
-        case 'left':
-          if (col - 1 >= 0) {
-            dispatch(cellActions.move([row, col - 1]))
-          }
-          break;
-        case 'right':
-          if (col + 1 < workingGrid.length) {
-            dispatch(cellActions.move([row, col + 1]))
-          }
-          break;
-        default:
-      }
-    }
+  //   if (row != null && col != null) {
+  //     switch(direction) {
+  //       case 'up':
+  //         if (row - 1 >= 0) {
+  //           dispatch(cellActions.move([row - 1, col]))
+  //         }
+  //         break;
+  //       case 'down':
+  //         if (row + 1 < workingGrid.length) {
+  //           dispatch(cellActions.move([row + 1, col]))
+  //         }
+  //         break;
+  //       case 'left':
+  //         if (col - 1 >= 0) {
+  //           dispatch(cellActions.move([row, col - 1]))
+  //         }
+  //         break;
+  //       case 'right':
+  //         if (col + 1 < workingGrid.length) {
+  //           dispatch(cellActions.move([row, col + 1]))
+  //         }
+  //         break;
+  //       default:
+  //     }
+  //   }
     
-  }
+  // }
 
   // useMouseTrap('1', () => numTrapHandler('1'))
   // useMouseTrap('2', () => numTrapHandler('2'))

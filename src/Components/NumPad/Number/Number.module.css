@@ -1,4 +1,9 @@
 .number {
+
+    height: 2.2rem;
+    width: 2.2rem;
+    
+    padding-top: 0.4rem;
     margin-left: 0.3rem;
     margin-right: 0.3rem;
 
@@ -15,12 +20,11 @@
     font-weight: 400;
     line-height: 20px;
     overflow: visible;
-    padding: 1rem 1rem 2rem 1rem;
     text-align: center;
     text-transform: none;
     touch-action: manipulation;
     user-select: none;
-    -webkit-user-select: none;
+    -webkit-user-select: none; 
     vertical-align: middle;
     white-space: nowrap;
 

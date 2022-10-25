@@ -1,11 +1,12 @@
 .controlButtons {
     
     max-height: 22rem;
+    max-width: fit-content;
 
-    margin-left: 1rem;
+    margin-top: 0.5rem;
 
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
 
@@ -14,8 +15,8 @@
 
 .individualButton {
 
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
 
     background-color: #000;
     background-image: none;

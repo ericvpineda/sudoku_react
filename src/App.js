@@ -9,12 +9,12 @@ import Header from './Components/Header/Header';
 function App() {
   return (
     <Fragment>
-      <Header></Header>      
       <main className={styles.app}>
+        <Header></Header>      
         <Grid></Grid>
         <ControlButtons></ControlButtons>
+        <NumPad></NumPad>
       </main>
-      <NumPad></NumPad>
     </Fragment>
   );
 }
