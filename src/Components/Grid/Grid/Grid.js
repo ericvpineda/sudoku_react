@@ -13,12 +13,12 @@ import SolvedModal from "../../UI/Modal/SolvedModal/SolvedModal";
 
 
 const Grid = () => {
+  const dispatch = useDispatch();
   const workingGrid = useSelector(state => state.grid.workingGrid)
-  // const initialGrid = useSelector(state => state.grid.initialGrid)
   const difficultyModalActive = useSelector(state => state.grid.difficultyModalActive)
   const isSolved = useSelector(state => state.grid.isSolved);
   // const [row, col] = useSelector(state => state.cell.selectedCell);
-  const dispatch = useDispatch();
+  // const initialGrid = useSelector(state => state.grid.initialGrid)
 
   const resetModalHandler = () => {
     dispatch(gridActions.activateDifficultyModal(false))

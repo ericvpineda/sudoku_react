@@ -1,7 +1,8 @@
 Working on: 
-
-- add public readme.me with summary
+- make app faster on mobile (probably the state updates??)
+- add media query to make app mobile friendly
 - deploy app    
+- add public readme.me with summary
 
 Completed:
 - set up files and basic UI 
