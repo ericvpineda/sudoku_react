@@ -1,4 +1,3 @@
-// import styles from './ControlButtons.module.css'
 import Card from "../../UI/Card/Card";
 import NewButton from "../NewButton/NewButton";
 import HintButton from "../HintButton/HintButton";

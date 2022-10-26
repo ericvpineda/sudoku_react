@@ -1,7 +1,4 @@
-Working on: 
-- make app faster on mobile (probably the state updates??)
-- add media query to make app mobile friendly
-- deploy app    
+Working on:     
 - add public readme.me with summary
 
 Completed:
@@ -24,6 +21,7 @@ Completed:
     - make cell numbers larger 
     - style buttons  
     - choose mode header, solve game header
+- deploy app
 
 Issues:
 
@@ -48,6 +46,8 @@ Solved:
 - non-seriablizable value detected in action in path register
     - added middleware to hand redux-persist action types it dispatches 
     - https://redux-toolkit.js.org/usage/usage-guide#use-with-redux-persist
+- make app faster on mobile (probably the state updates??)
+    - heroku buildpack needed to set for react apps 
 
 Future Ideas:
 - Create settings page (left-hand)

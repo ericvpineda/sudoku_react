@@ -1,13 +1,12 @@
 .numpad {
-
   max-width: fit-content;
 
   margin-top: 0.5rem;
+  padding: 0.7rem !important;
 
   background-color: rgba(255, 255, 255, 0.4);
 
   display: flex;
   flex-direction: row;
 
-  padding: 0.7rem !important;
 }

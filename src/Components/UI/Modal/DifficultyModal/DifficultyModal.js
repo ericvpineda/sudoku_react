@@ -27,7 +27,6 @@ const ModalOverlay = (props) => {
                     Select Difficulty&#x1F914;
                 </h2>
             </header>
-            {/* Section for button modes */}
             <div className={styles.buttonRow}>
                 <Button addStyles={styles.button} onClick={() => onClickHandler('easy')}>Easy</Button>
                 <Button addStyles={styles.button} onClick={() => onClickHandler('medium')}>Med</Button>
