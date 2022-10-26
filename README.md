@@ -4,7 +4,7 @@
 
 ## Description 
 - React app that serves react-redux commands on a single webpage. 
-- Website link: sudoku-react-berk.herokuapp.com/
+- Website: [sudoku-react-berk.herokuapp.com/](sudoku-react-berk.herokuapp.com/)
 
 ## Functionality 
 - Buttons:
