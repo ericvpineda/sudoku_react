@@ -4,6 +4,7 @@
 
 ## Description 
 - React app that serves react-redux commands on a single webpage. 
+- Website link: sudoku-react-berk.herokuapp.com/
 
 ## Functionality 
 - Buttons:
@@ -20,4 +21,4 @@
 
 ## References 
 - Hosted on [Heroku](https://www.heroku.com/)
-- Uses [react-hook-mousetrap](https://github.com/telecta/react-mousetrap) API for keyboard actions
+- Uses [react-mousetrap](https://github.com/telecta/react-mousetrap) API for keyboard actions
