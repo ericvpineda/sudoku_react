@@ -1,6 +1,6 @@
 # Sudoku 
 
-![Sudoku Image](./public/example.png)
+![Sudoku Image](./public/example.jpg)
 
 ## Description 
 - React app that serves react-redux commands on a single webpage. 
