@@ -4,7 +4,7 @@
 
 ## Description 
 - React app that serves react-redux commands on a single webpage. 
-- Website: [https://sudoku-react-berk.herokuapp.com/](https://sudoku-react-berk.herokuapp.com/)
+- Website: [https://sudoku-react-berk.netlify.app/](https://sudoku-react-berk.netlify.app/)
 
 ## Functionality 
 - Buttons:
@@ -20,5 +20,5 @@
 - Use keyboard number pad to input values, backspace key and delete key to delete values in focused cell. 
 
 ## References 
-- Hosted on [Heroku](https://www.heroku.com/)
+- Hosted on [Netlify](https://www.netlify.com/)
 - Uses [react-mousetrap](https://github.com/telecta/react-mousetrap) API for keyboard actions
