@@ -10,7 +10,7 @@ const Number = (props) => {
     const initialGrid = useSelector(state => state.grid.initialGrid)
 
     const onClickHandler = () => {
-    if (row != null && col != null && initialGrid[row][col] === '.') {
+    if (row != null && col != null && initialGrid && initialGrid[row][col] === '.') {
         let num = props.children.toString();
         dispatch(gridActions.fillCell([num, selectedCell]))
         }

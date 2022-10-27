@@ -35,7 +35,7 @@ const Grid = () => {
   };
 
   const numTrapHandler = (input) => {
-    if (row != null && col != null && initialGrid[row][col] === '.') {
+    if (row != null && col != null && initialGrid && initialGrid[row][col] === '.') {
       dispatch(gridActions.fillCell([input, [row, col]]))
     }
   }
@@ -109,7 +109,7 @@ const Grid = () => {
                   [...Array(9)].map((_, col) => {
                     return (
                       <Cell row={row} col={col}>
-                        {workingGrid[row][col]}
+                        {workingGrid && workingGrid[row][col]}
                       </Cell>
                     );
                   })
