@@ -22,7 +22,7 @@ const Cell = (props) => {
       onClick={selectCellHandler}
       className={`${styles.cell} 
         ${row === props.row && col === props.col ? styles.selectedCell : ""}
-        ${intialGrid && initialGrid[props.row][props.col] === "." ? styles.inputCell : ""}
+        ${initialGrid && initialGrid[props.row][props.col] === "." ? styles.inputCell : ""}
         ${activeCell && 
           (activeCell[0] === props.row && activeCell[1] === props.col)
             ? styles.activeCell
