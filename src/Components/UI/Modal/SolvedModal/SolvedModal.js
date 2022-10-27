@@ -5,7 +5,6 @@ import ReactDOM from "react-dom";
 import Button from "../../Button/Button";
 import { useDispatch, useSelector } from "react-redux";
 import { gridActions } from "../../../../store/grid";
-import { randomGrid } from "../../../../utils/utils";
 
 const BackDrop = () => {
     return <div className={styles.backdrop}></div>
@@ -13,12 +12,11 @@ const BackDrop = () => {
 
 const ModalOverlay = () => {
     const dispatch = useDispatch();
-    const currDifficulty = useSelector(state => state.grid.difficulty)
+    const difficulty = useSelector(state => state.grid.difficulty)
     const time = useSelector(state => state.grid.time)
 
     const onClickHandler = () => {
-        const newGridLogistics = randomGrid(currDifficulty)
-        dispatch(gridActions.newGame(newGridLogistics))
+        dispatch(gridActions.newGame(difficulty))
     }
 
     return (

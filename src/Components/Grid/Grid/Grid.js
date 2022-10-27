@@ -5,10 +5,9 @@ import Row from "../Row/Row";
 import DifficultyModal from "../../UI/Modal/DifficultyModal/DifficultyModal";
 import SolvedModal from "../../UI/Modal/SolvedModal/SolvedModal";
 import { useSelector, useDispatch,} from "react-redux";
-import { Children, Fragment, useEffect } from "react";
+import { Children, Fragment, useCallback, useEffect } from "react";
 import { gridActions } from "../../../store/grid";
 import { cellActions } from "../../../store/cell";
-import { randomGrid } from "../../../utils/utils";
 
 const MouseTrap = require('mousetrap')
 
@@ -17,18 +16,18 @@ const Grid = () => {
   const workingGrid = useSelector(state => state.grid.workingGrid);
   const initialGrid = useSelector(state => state.grid.initialGrid);
   const difficultyModal = useSelector(state => state.grid.difficultyModalActive);
+  const solvedGrid = useSelector(state => state.grid.solvedGrid);
   const isSolved = useSelector(state => state.grid.isSolved);
-  const time = useSelector(state => state.grid.time);
-  const difficulty = useSelector(state => state.grid.difficulty)
   const [row, col] = useSelector(state => state.cell.selectedCell)
 
   // Note: Creates initial board
+  const createGame = useCallback(() => { dispatch(gridActions.newGame())}, [dispatch])
+  
   useEffect(() => {
-    if (!isSolved && time === 0) {
-      const startGridLogistics = randomGrid(difficulty);
-      dispatch(gridActions.newGame(startGridLogistics))
+    if (solvedGrid.length === 0) {
+      createGame()
     }    
-  }, [isSolved, dispatch, time, difficulty])
+  }, [solvedGrid, createGame])
 
   const resetModalHandler = () => {
     dispatch(gridActions.activateDifficultyModal(false));
@@ -108,9 +107,7 @@ const Grid = () => {
                 {Children.toArray(
                   [...Array(9)].map((_, col) => {
                     return (
-                      <Cell row={row} col={col}>
-                        {workingGrid && workingGrid[row][col]}
-                      </Cell>
+                      <Cell row={row} col={col}></Cell>
                     );
                   })
                 )}

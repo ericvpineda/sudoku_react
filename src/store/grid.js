@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import {compareGrids} from '../utils/utils.js'
+import {compareGrids, randomGrid} from '../utils/utils.js'
 
 const initialState = {
   gridLength : [],
@@ -29,7 +29,7 @@ const gridSlice = createSlice({
         }
       },
       newGame (state, action) {
-        const [newGrid, newSolvedGrid, newFilledCellsCount, newGridLength, mode] = action.payload;
+        const [newGrid, newSolvedGrid, newFilledCellsCount, newGridLength, mode] = randomGrid(action.payload);
         state.initialGrid = newGrid;
         state.workingGrid = newGrid;
         state.solvedGrid = newSolvedGrid;
@@ -66,17 +66,6 @@ const gridSlice = createSlice({
       },
       activateDifficultyModal (state, action) {
         state.difficultyModalActive = action.payload;
-      },
-      changeDifficulty (state, action) {
-        const [newGrid, newSolvedGrid, newFilledCellsCount, newGridLength, mode] = action.payload;
-        state.initialGrid = newGrid;
-        state.workingGrid = newGrid;
-        state.solvedGrid = newSolvedGrid;
-        state.numFilledCells = newFilledCellsCount;
-        state.initFilledCells = newFilledCellsCount;
-        state.gridLength = newGridLength;
-        state.difficulty = mode;
-        state.time = 0;
       },
       incrementTime (state) {
         if (!state.isSolved) {

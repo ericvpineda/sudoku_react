@@ -7,6 +7,11 @@ const Cell = (props) => {
   const initialGrid = useSelector((state) => state.grid.initialGrid);
   const activeCell = useSelector((state) => state.cell.activeCell);
   const [row, col] = useSelector((state) => state.cell.selectedCell);
+  const workingGrid = useSelector((state) => state.grid.workingGrid);
+  const value = workingGrid.length > 0 ? workingGrid[props.row][props.col] : '';
+  const isInputCell = initialGrid.length > 0 && initialGrid[props.row][props.col] === ".";
+  const isActiveCell = activeCell.length > 0 && activeCell[0] === props.row && activeCell[1] === props.col;
+  const isSelectedCell = row === props.row && col === props.col;
 
   const selectCellHandler = () => {
     dispatch(cellActions.select([props.row, props.col]));
@@ -21,16 +26,12 @@ const Cell = (props) => {
       onMouseOver={mouseOverHandler}
       onClick={selectCellHandler}
       className={`${styles.cell} 
-        ${row === props.row && col === props.col ? styles.selectedCell : ""}
-        ${initialGrid && initialGrid[props.row][props.col] === "." ? styles.inputCell : ""}
-        ${activeCell && 
-          (activeCell[0] === props.row && activeCell[1] === props.col)
-            ? styles.activeCell
-            : ""
-        }
+        ${isSelectedCell ? styles.selectedCell : ""}
+        ${isInputCell ? styles.inputCell : ""}
+        ${isActiveCell ? styles.activeCell : ""}
         `}
     >
-      {props.children === "." ? "" : props.children}
+      {value === "." ? "" : value}
     </div>
   );
 };
